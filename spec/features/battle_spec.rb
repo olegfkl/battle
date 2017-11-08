@@ -1,9 +1,11 @@
 require 'spec_helper'
 
-feature '#home page' do
-  scenario 'Testing infrastructure working!' do
-    visit('/')
-    save_and_open_page
-    expect(page).to have_content("Testing infrastructure working!")
+feature "Play name form" do
+  scenario "submit names and see them on following screen" do
+    visit("/")
+    fill_in :player1, with: "Oleg"
+    fill_in :player2, with: "Lewis"
+    click_button "Submit"
+    expect(page).to have_content "Oleg Lewis"
   end
 end
