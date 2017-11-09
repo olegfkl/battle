@@ -21,3 +21,11 @@ feature "Get confirmation attacked player 2 on the following screen" do
     expect(page).to have_content "Oleg attacked Lewis"
   end
 end
+
+feature "A player 1 attacks player 2" do
+    scenario "Reduce player 2 points after punch" do
+      sign_in_and_play
+      attack_player_2
+      expect(page).to have_content "Lewis: 90HP"
+    end
+  end

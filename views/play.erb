@@ -17,11 +17,18 @@
 
 </style>
 
-<div>
-  <div class="div1"> <%= @player1 %> </div>
-  <div class="div2"> <%= @player2 %>: <%= @p2health %>
+
+
+  <div>
+    <div class="div1"> <%= @player1.name %> </div>
+    <div class="div2"> <%= @player2.name %>: <%= @player2.health %>HP
+    </div>
   </div>
-</div>
-<form method="get" action="/attacked_player_2">
-    <button type="submit">Attack player 2</button>
-</form>
+  <form method="post" action="/attacked_player_2">
+      <button type="submit">Attack player 2</button>
+  </form>
+
+
+<%if @player2.health < 100%>
+<p><%= @player1.name %> attacked <%= @player2.name %></p>
+<%end%>
