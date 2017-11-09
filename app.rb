@@ -21,6 +21,12 @@ end
     erb(:play)
   end
 
+  get '/attacked_player_2' do
+    @player1 = session[:player1]
+    @player2 = session[:player2]
+    erb(:attacked_player_2)
+  end
+
 run! if app_file == $0
 end
 # #

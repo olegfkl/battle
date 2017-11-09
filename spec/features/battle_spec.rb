@@ -13,3 +13,11 @@ feature "Hit points" do
     expect(page).to have_content "Lewis: 100HP"
   end
 end
+
+feature "Get confirmation attacked player 2 on the following screen" do
+  scenario "Attack player 2 by pressing attack button" do
+    sign_in_and_play
+    attack_player_2
+    expect(page).to have_content "Oleg attacked Lewis"
+  end
+end
