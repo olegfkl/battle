@@ -8,6 +8,6 @@ def sign_in_and_play
   click_button "Submit"
 end
 
-def attack_player_2
-  click_button "Attack player 2"
+def attack
+  click_button "Attack"
 end

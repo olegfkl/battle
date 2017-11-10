@@ -14,6 +14,7 @@ end
      player1 = Player.new(params[:player1])
      player2 = Player.new(params[:player2])
      $game = Game.new(player1, player2)
+     $x = false
     # $game = Game.new(Player.new(params[:player1]),Player.new(params[:player2]))
     # Example with sessions
     # session[:player1] = params[:player1]
@@ -27,10 +28,11 @@ end
     erb(:play)
   end
 
-  post '/attacked_player_2' do
+  post '/attack' do
     @player1 = $game.player1
     @player2 = $game.player2
-    $game.attack(@player2)
+    $game.switch
+    $x = true
     redirect '/play'
   end
 

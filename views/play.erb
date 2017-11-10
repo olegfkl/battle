@@ -17,18 +17,25 @@
 
 </style>
 
-<%= $game.player1.name %>
 
   <div>
-    <div class="div1"> <%= @player1.name %> </div>
+    <div class="div1"> <%= @player1.name %>: <%= @player1.health %>HP </div>
     <div class="div2"> <%= @player2.name %>: <%= @player2.health %>HP
     </div>
   </div>
-  <form method="post" action="/attacked_player_2">
-      <button type="submit">Attack player 2</button>
+  <% if $game.p1_turn %>
+   <%= @player1.name %>'s turn
+  <% else %>
+   <%= @player2.name %>'s turn
+  <% end %>
+  <form method="post" action="/attack">
+      <button type="submit">Attack</button>
   </form>
 
-
-<%if @player2.health < 100%>
-<p><%= @player1.name   %> attacked <%= @player2.name %></p>
+<%if $x %>
+    <%if $game.p2_turn%>
+    <p><%= @player1.name   %> attacked <%= @player2.name %></p>
+    <% else %>
+    <p><%= @player2.name   %> attacked <%= @player1.name %></p>
+    <%end%>
 <%end%>
