@@ -15,4 +15,5 @@ PUNCH = 10
      @health -= punch
   end
 
+
 end

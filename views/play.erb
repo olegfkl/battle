@@ -17,7 +17,7 @@
 
 </style>
 
-
+<%= $game.player1.name %>
 
   <div>
     <div class="div1"> <%= @player1.name %> </div>
@@ -30,5 +30,5 @@
 
 
 <%if @player2.health < 100%>
-<p><%= @player1.name %> attacked <%= @player2.name %></p>
+<p><%= @player1.name   %> attacked <%= @player2.name %></p>
 <%end%>

@@ -11,9 +11,10 @@ end
   end
 
   post '/names' do
-    # $player1 = Player.new(params[:player1])
-    # $player2 = Player.new(params[:player2])
-    $game = Game.new(Player.new(params[:player1]),Player.new(params[:player2]))
+     player1 = Player.new(params[:player1])
+     player2 = Player.new(params[:player2])
+     $game = Game.new(player1, player2)
+    # $game = Game.new(Player.new(params[:player1]),Player.new(params[:player2]))
     # Example with sessions
     # session[:player1] = params[:player1]
     # session[:player2] = params[:player2]
