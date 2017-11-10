@@ -28,13 +28,24 @@ end
     erb(:play)
   end
 
-  post '/attack' do
+  get '/attack' do
     @player1 = $game.player1
     @player2 = $game.player2
     $game.switch
     $x = true
-    redirect '/play'
+    if @player2.health.zero?
+      redirect '/champion'
+    else
+      redirect '/play'
+    end
   end
+
+  get '/champion' do
+     @player1 = $game.player1
+     @player2 = $game.player2
+     erb(:champion)
+   end
+
 
 run! if app_file == $0
 end

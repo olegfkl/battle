@@ -3,7 +3,8 @@
 feature "Play name form" do
   scenario "submit names and see them on following screen" do
   sign_in_and_play
-    expect(page).to have_content "Oleg Lewis"
+    expect(page).to have_content "Oleg"
+    expect(page).to have_content "Lewis"
   end
 end
 
@@ -27,5 +28,13 @@ feature "A player 1 attacks player 2" do
       sign_in_and_play
       attack
       expect(page).to have_content "Lewis: 90HP"
+    end
+  end
+
+  feature "When a player wins takes you to another page" do
+    scenario "A player sees a massage he wins" do
+      sign_in_and_play
+      19.times { attack }
+      expect(page).to have_content "Oleg wins!!!"
     end
   end
