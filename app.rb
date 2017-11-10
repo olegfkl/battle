@@ -13,7 +13,7 @@ end
   post '/names' do
      player1 = Player.new(params[:player1])
      player2 = Player.new(params[:player2])
-     $game = Game.new(player1, player2)
+     Game.new(player1, player2)
      $x = false
     # $game = Game.new(Player.new(params[:player1]),Player.new(params[:player2]))
     # Example with sessions
@@ -23,15 +23,15 @@ end
   end
 
   get '/play' do
-    @player1 = $game.player1
-    @player2 = $game.player2
+    @player1 = Game.instance.player1
+    @player2 = Game.instance.player2
     erb(:play)
   end
 
   get '/attack' do
-    @player1 = $game.player1
-    @player2 = $game.player2
-    $game.switch
+    @player1 = Game.instance.player1
+    @player2 = Game.instance.player2
+    Game.instance.switch
     $x = true
     if @player2.health.zero?
       redirect '/champion'
@@ -41,8 +41,8 @@ end
   end
 
   get '/champion' do
-     @player1 = $game.player1
-     @player2 = $game.player2
+    @player1 = Game.instance.player1
+    @player2 = Game.instance.player2
      erb(:champion)
    end
 

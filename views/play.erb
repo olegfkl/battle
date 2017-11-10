@@ -23,7 +23,7 @@
     <div class="div2"> <%= @player2.name %>: <%= @player2.health %>HP
     </div>
   </div>
-  <% if $game.p1_turn %>
+  <% if Game.instance.p1_turn %>
    <%= @player1.name %>'s turn
   <% else %>
    <%= @player2.name %>'s turn
@@ -33,7 +33,7 @@
   </form>
 
 <%if $x %>
-    <%if $game.p2_turn%>
+    <%if Game.instance.p2_turn%>
     <p><%= @player1.name   %> attacked <%= @player2.name %></p>
     <% else %>
     <p><%= @player2.name   %> attacked <%= @player1.name %></p>
