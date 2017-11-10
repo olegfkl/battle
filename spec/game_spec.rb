@@ -24,5 +24,17 @@ describe Game do
         expect { game.switch }.to change { game.p2_turn }.to be(true)
       end
     end
+    context 'when it is player2s turn' do
+      it 'attacks player1' do
+        game.switch
+        expect(obj1).to receive(:receive_damage)
+        game.switch
+      end
+
+      it 'switches to players 1 turn' do
+        game.switch
+        expect { game.switch }.to change { game.p1_turn }.to be(true)
+      end
+    end
   end
 end
